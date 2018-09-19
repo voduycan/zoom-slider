@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zoom Slider</title>
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="scss/main.css">
+</head>
+<body>
+
+	<header>
+
+		<span class="left">
+			blueprint
+			<span class="icon-question help" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span>
+		<h1>Zoom Slider</h1>
+		</span>
+
+		<nav>
+			<span class="icon-arrow-left" data-info="previous Blueprint"></span>
+			<span class="icon-arrow-right" data-info="next Blueprint"></span>
+			<span class="icon-droplet" data-info="back to the Codrops article"></span>
+			<span class="icon-drawer last" data-info="Blueprints archive"></span>
+		</nav>
+
+	</header>
+
+	<section class="slide">
+
+		<!-- Apple Watch -->
+		<div class="slider" id="slider_1">
+			<div class="container">
+				<div class="slider_mover">
+					<div class="img-big">
+						<img src="./img/apple-watch.png">
+						<div class="img-small watch">
+							<img src="./img/apple-watch-content-preview.png">
+						</div>
+					</div>
+				</div>
+				<h2 class="title">
+					<span>The Fabulous</span>
+				 	Apple Watch
+				</h2>
+			</div>	
+		</div>
+		<!--End Apple Watch -->
+
+		<!-- Iphone -->
+		<div class="slider" id="slider_2">
+			<div class="container">
+				<div class="slider_mover">
+					<div class="img-big">
+						<img src="./img/iphone.png">
+						<div class="img-small iphone">
+							<img src="./img/iphone-content-preview.png">
+						</div>
+					</div>
+				</div>
+				<h2 class="title">
+					<span>The Classy</span>
+				 	 iPhone 6
+				</h2>
+			</div>	
+		</div>
+		<!--End Iphone -->
+
+		<!-- Ipad -->
+		<div class="slider" id="slider_3">
+			<div class="container">
+				<div class="slider_mover">
+					<div class="img-big">
+						<img src="./img/ipad.png">
+						<div class="img-small ipad">
+							<img src="./img/ipad-content-preview.png">
+						</div>
+					</div>
+				</div>
+				<h2 class="title">
+					<span>The Fantastic</span>
+				 	 iPad Mini
+				</h2>
+			</div>	
+		</div>
+		<!--End Ipad -->
+
+		<!-- Macbook -->
+		<div class="slider" id="slider_4">
+			<div class="container">
+				<div class="slider_mover">
+					<div class="img-big">
+						<img src="./img/macbook.png">
+						<div class="img-small macbook">
+							<img src="./img/macbook-content-preview.jpg">
+						</div>
+					</div>
+				</div>
+				<h2 class="title">
+					<span>The Amazing</span>
+				 	 MacBook
+				</h2>
+			</div>	
+		</div>
+		<!--End Macbook -->
+
+		<!-- IMac -->
+		<div class="slider" id="slider_5">
+			<div class="container">
+				<div class="slider_mover">
+					<div class="img-big">
+						<img src="./img/imac.png">
+						<div class="img-small macbook">
+							<img src="./img/imac-content-preview.jpg">
+						</div>
+					</div>
+				</div>
+				<h2 class="title">
+					<span>The Amazing</span>
+				 	 MacBook
+				</h2>
+			</div>	
+		</div>
+		<!--End IMac -->
+		
+	</section>
+	<nav class="slider_nav">
+		<button class="previous"><span class="icon-arrow-left2"></span></button>
+		<button class="search"><span class="icon-search"></span></button>
+		<button class="next"><span class="icon-arrow-right2"></span></span></button>
+	</nav>
+	
+
+	<script src="./js/jquery-3.3.1.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			var i = 1;
+			var n = 5;
+			var curent = n;
+			var near = i + 1;
+			$('#slider_1').css('visibility', 'visible');
+			$('#slider_' + curent).addClass('translate-left');
+			$('#slider_' + near).addClass('translate-right');
+
+			//Click Previous button
+			$('.previous').click(function(){
+				curent = i;
+				
+				if(i > 1 ){
+					i = i - 1;
+				}
+				else{
+					i = n;
+				}
+				near = i - 1;
+				if(i===1){
+					near = n;
+				}
+				$('#slider_' + curent).css('visibility','hidden');
+				$('#slider_' + curent).prop('class','slider');
+				$('#slider_' + curent).addClass('translate-right');
+
+				$('#slider_' + i).css('visibility', 'visible');
+				$('#slider_' + i).prop('class','slider');
+				$('#slider_' + i).addClass('translate-center-left');
+
+				$('#slider_' + near).prop('class','slider');
+				$('#slider_' + near).addClass('translate-left');
+				
+			});
+
+			//Click Next button
+			$('.next').click(function(){
+				curent = i;
+				
+				if(i < n ){
+					i = i + 1;
+				}
+				else{
+					i = 1;
+				}
+				near = i + 1;
+				if(i === n){
+					near = 1;
+				}
+
+				$('#slider_' + curent).css('visibility','hidden');
+				$('#slider_' + curent).prop('class','slider');
+				$('#slider_' + curent).addClass('translate-left');
+				
+
+				$('#slider_' + i).css('visibility', 'visible');
+				$('#slider_' + i).prop('class','slider');
+				$('#slider_' + i).addClass('translate-center-right');
+
+				$('#slider_' + near).prop('class','slider');
+				$('#slider_' + near).addClass('translate-right');
+
+			});
+		});
+	</script>
+
+</body>
+</html>
