@@ -110,96 +110,221 @@
 				<div class="slider_mover">
 					<div class="img-big">
 						<img src="./img/imac.png">
-						<div class="img-small macbook">
+						<div class="img-small imac">
 							<img src="./img/imac-content-preview.jpg">
 						</div>
 					</div>
 				</div>
 				<h2 class="title">
-					<span>The Amazing</span>
-				 	 MacBook
+					<span>The Glorious</span>
+				 	  iMac
 				</h2>
 			</div>	
 		</div>
 		<!--End IMac -->
-		
+
+		<!-- Navbar -->
+		<nav class="slider_nav">
+			<button class="previous"><span class="icon-arrow-left2"></span></button>
+			<button class="search"><span class="icon-search"></span></button>
+			<button class="next"><span class="icon-arrow-right2"></span></span></button>
+		</nav>
+		<!--End Navbar -->
 	</section>
-	<nav class="slider_nav">
-		<button class="previous"><span class="icon-arrow-left2"></span></button>
-		<button class="search"><span class="icon-search"></span></button>
-		<button class="next"><span class="icon-arrow-right2"></span></span></button>
-	</nav>
-	
+	<!-- End Slider -->
+
+	<!-- Content detail -->
+	<!-- Apple Watch -->
+	<section class="content-open" id="content_1">
+		<div class="content">
+			<button class="close-btn">x</button>
+			<div class="image-left">
+				<img src="./img/apple-watch-content.png">
+			</div>
+			<div class="detail">
+				<h2>The Apple Watch</h2>
+				<h3>Entirely new ways to stay in touch</h3>
+				<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.</p>
+				<p>
+					<a href="">Learn more about new ways to connect ⟶</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	<!--End  Apple Watch -->
+
+	<!-- Iphone -->
+	<section class="content-open" id="content_2">
+		<div class="content">
+			<button class="close-btn">x</button>
+			<div class="image-left">
+				<img src="./img/iphone-content.png">
+			</div>
+			<div class="detail">
+				<h2>The iPhone 6</h2>
+				<h3>Incredible performance for powerful apps</h3>
+				<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.</p>
+				<p>
+					<a href="">Learn more about new ways to connect ⟶</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Iphone -->
+
+	<!-- Ipad -->
+	<section class="content-open" id="content_3">
+		<div class="content">
+			<button class="close-btn">x</button>
+			<div class="image-left">
+				<img src="./img/ipad-content.jpg">
+			</div>
+			<div class="detail">
+				<h2>The iPad Mini</h2>
+				<h3>Desktop-class architecture without a desktop</h3>
+				<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.</p>
+				<p>
+					<a href="">Learn more about new ways to connect ⟶</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Ipad -->
+
+	<!-- Macbook -->
+	<section class="content-open" id="content_4">
+		<div class="content">
+			<button class="close-btn">x</button>
+			<div class="image-left">
+				<img src="./img/macbook-content.jpg">
+			</div>
+			<div class="detail">
+				<h2>The MacBook</h2>
+				<h3>It's the future of the notebook</h3>
+				<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.</p>
+				<p>
+					<a href="">Learn more about new ways to connect ⟶</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Macbook -->
+
+	<!-- Imac -->
+	<section class="content-open" id="content_5">
+		<div class="content">
+			<button class="close-btn">x</button>
+			<div class="image-left">
+				<img src="./img/imac-content.jpg">
+			</div>
+			<div class="detail">
+				<h2>The iMac</h2>
+				<h3>Engineered to the very last detail</h3>
+				<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat.</p>
+				<p>
+					<a href="">Learn more about new ways to connect ⟶</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- End Imac -->
 
 	<script src="./js/jquery-3.3.1.min.js"></script>
 
 	<script>
 		$(document).ready(function(){
+
 			var i = 1;
 			var n = 5;
 			var curent = n;
 			var near = i + 1;
+			var flag = false;
+
 			$('#slider_1').css('visibility', 'visible');
 			$('#slider_' + curent).addClass('translate-left');
 			$('#slider_' + near).addClass('translate-right');
 
 			//Click Previous button
 			$('.previous').click(function(){
-				curent = i;
-				
-				if(i > 1 ){
-					i = i - 1;
-				}
-				else{
-					i = n;
-				}
-				near = i - 1;
-				if(i===1){
-					near = n;
-				}
-				$('#slider_' + curent).css('visibility','hidden');
-				$('#slider_' + curent).prop('class','slider');
-				$('#slider_' + curent).addClass('translate-right');
+				if(!flag){
+					flag = true;
+					curent = i;
+					
+					if(i > 1 ){
+						i = i - 1;
+					}
+					else{
+						i = n;
+					}
+					near = i - 1;
+					if(i===1){
+						near = n;
+					}
+					$('#slider_' + curent).css('visibility','hidden');
+					$('#slider_' + curent).prop('class','slider');
+					$('#slider_' + curent).addClass('translate-right');
 
-				$('#slider_' + i).css('visibility', 'visible');
-				$('#slider_' + i).prop('class','slider');
-				$('#slider_' + i).addClass('translate-center-left');
+					$('#slider_' + i).css('visibility', 'visible');
+					$('#slider_' + i).prop('class','slider');
+					$('#slider_' + i).addClass('translate-center-left');
 
-				$('#slider_' + near).prop('class','slider');
-				$('#slider_' + near).addClass('translate-left');
-				
+					$('#slider_' + near).prop('class','slider');
+					$('#slider_' + near).addClass('translate-left');
+					setTimeout(function(){flag = false;}, 0.5*1000);
+				}
 			});
+
+			var flag2 = false;
 
 			//Click Next button
 			$('.next').click(function(){
-				curent = i;
-				
-				if(i < n ){
-					i = i + 1;
+				if(!flag2){
+					flag2 = true;
+					curent = i;
+					
+					if(i < n ){
+						i = i + 1;
+					}
+					else{
+						i = 1;
+					}
+					near = i + 1;
+					if(i === n){
+						near = 1;
+					}
+
+					$('#slider_' + curent).css('visibility','hidden');
+					$('#slider_' + curent).prop('class','slider');
+					$('#slider_' + curent).addClass('translate-left');
+					
+
+					$('#slider_' + i).css('visibility', 'visible');
+					$('#slider_' + i).prop('class','slider');
+					$('#slider_' + i).addClass('translate-center-right');
+
+					$('#slider_' + near).prop('class','slider');
+					$('#slider_' + near).addClass('translate-right');
+					setTimeout(function(){flag2 = false;}, 0.5*1000);
 				}
-				else{
-					i = 1;
-				}
-				near = i + 1;
-				if(i === n){
-					near = 1;
-				}
+			});
 
-				$('#slider_' + curent).css('visibility','hidden');
-				$('#slider_' + curent).prop('class','slider');
-				$('#slider_' + curent).addClass('translate-left');
-				
-
-				$('#slider_' + i).css('visibility', 'visible');
-				$('#slider_' + i).prop('class','slider');
-				$('#slider_' + i).addClass('translate-center-right');
-
-				$('#slider_' + near).prop('class','slider');
-				$('#slider_' + near).addClass('translate-right');
-
+			//Click Search button
+			$('.search').click(function(){
+				$('.slide .zoom-in').removeClass('zoom-in');
+				$('#slider_' + i).addClass('zoom-in');
+				setTimeout(function(){
+					$('#content_' + i).addClass('show');
+					$('#content_' + i).css('visibility', 'visible');
+				}, 0.6*1000);
+			});
+			$('.close-btn').click(function(){
+				$('#content_' + i).removeClass('show');
+				setTimeout(function(){
+					$('#slider_' + i).removeClass('zoom-in');
+					$('#content_' + i).css('visibility', 'hidden');
+				}, 0.6*1000);
 			});
 		});
 	</script>
-
 </body>
 </html>

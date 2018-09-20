@@ -5,14 +5,19 @@ body{
     box-sizing: border-box;
     background-color: $bg-color;
     position: relative;
-    height: 100vh;
-    overflow: hidden;
+    //height: 100vh;
+    //overflow: hidden;
 }
 header{
+	z-index: $zIndex1;
+	position: absolute;
+	width: 100%;
+	height: 7em;
     margin: 0 auto;
 	padding: 3em 3em 0;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
 	span.left{
 		text-transform: uppercase;
 	    letter-spacing: 0.5em;
@@ -35,7 +40,6 @@ header{
 			    margin-left: 5px;
 			    font-weight: bold;
 			    letter-spacing: 0;
-			    z-index: $zIndex1;
 		     	visibility: hidden;
 	        }
 	        &:hover{
@@ -101,62 +105,88 @@ header{
 	}
 }
 .translate-right{
-    transform: translateX(90%);
+	.slider_mover{
+	@include translateX(90%);
+	}
     opacity: 0;
     .img-big{
-    	transform: rotate(15deg);
+    	@include rotate(15deg);
+    }
+    h2{
+    	@include translateX(20%);
     }
 }
 .translate-center-left{
-    transform: translateX(0);
+    
     .slider_mover{
-    	animation: to-left 0.15s linear 0.45s;
+    	@include translateX(0);
+    	@include animation(to-left 0.15s linear 0.45s);
     }
     opacity: 1;
     .img-big{
-    	transform: rotate(0);
+    	@include rotate(0);
+    }
+    h2{
+    	@include translateX(0);
     }
 }
 .translate-center-right{
-    transform: translateX(0);
+   
     .slider_mover{
-    	animation: to-right 0.15s linear 0.45s;
+    	@include translateX(0);
+    	@include animation(to-right 0.15s linear 0.45s);
     }
     opacity: 1;
     .img-big{
-    	transform: rotate(0);
+    	@include rotate(0);
+    }
+    h2{
+    	@include translateX(0);
     }
 }
 .translate-left{
-    transform: translateX(-90%);
+    .slider_mover{
+    	@include translateX(-90%);
+    }
 
 	opacity: 0;		
     .img-big{
-    	transform: rotate(-15deg);
+    	@include rotate(-15deg);
+    }
+    h2{
+    	@include translateX(-20%);
     }
 }
+
+
 .slide{
     position: relative;
+    padding-top: 7em;
     height: 100vh;
     overflow: hidden;
-
+    box-sizing: border-box;
 	.slider{
 		position: absolute;
 	    width: 100%;
-    	top: 0;
+    	top: 7em;
     	visibility: hidden;
-    	transition: all 0.5s ;
+		@include transition(all 0.5s);
 		.container{
+			@include transition(all 0.6s);
+		 	transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
 			.slider_mover{
+				@include transition(all 0.5s);
 			    display: flex;
 		    	justify-content: center;
 				.img-big{
 					position: relative;
-					transition: all 0.5s ;
+				 	@include transition(all 0.6s);
 					.img-small{
 					    position: absolute;
 					    border-radius: inherit;
 					    overflow: hidden;
+					    @include translateX(0);
+					   	@include transition(all 0.5s);
 					}
 					.watch{
 						border-radius: 19px;
@@ -175,9 +205,14 @@ header{
 					    top: 79px;
 		    			left: 50px;
 					}
+					.imac{
+				        top: 84px;
+    					left: 63px;
+					}
 				}
 			}
 			h2{
+				@include transition(all 0.6s);
 			    font-size: 1.75em;
 			    font-weight: normal;
 			    margin: 0 auto;
@@ -194,26 +229,136 @@ header{
 			}
 		}
 	}
-}
-nav.slider_nav{
-    position: absolute;
-    bottom: 30%;
-    width: 216px;
-    left: 50%;
-    margin-left: -108px;
-	button{
-		background: none;
-	    border: none;
-	    color: $color-purple;
-        font-size: 1.2em;
-    	margin: 0 1em;
-    	&:focus{
-    		outline: 0;
-    	}
-    	&:hover{
-    		span{
-    			color: $color-white;
-    		}
-    	}
+	nav.slider_nav{
+	    position: absolute;
+	    bottom: 38%;
+	    width: 280px;
+	    left: 50%;
+	    margin-left: -140px;
+	   	text-align: center;
+	   	@media screen and (max-width: 1366px){
+   		    bottom: 10%;
+	   	}
+		button{
+			background: none;
+		    border: none;
+		    color: $color-purple;
+	        font-size: 1.2em;
+	    	margin: 0 1em;
+	    	&:focus{
+	    		outline: 0;
+	    	}
+	    	&:hover{
+	    		span{
+	    			color: $color-white;
+	    		}
+	    	}
+		}
 	}
 }
+
+//Zoom in
+.zoom-in{
+	.container{
+		transform: translate3d(0px, 0px, 0px) scale3d(1.69, 1.69, 1) !important;
+		opacity: 0 !important;
+		.slider_mover{
+			.img-big{
+				.img-small{
+					transform: translateX(100%) !important;
+					opacity: 0 !important;
+				}
+			}
+		}
+	}
+}
+
+//Content detail
+.content-open{
+	z-index: $zIndex2;
+	height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+	.content{
+		display: flex;
+	    align-items: center;
+	    height: 100%;
+	    position: relative;
+	    background: $bg-detail;
+	    padding: 2em 0;
+	    box-sizing: border-box;
+	    button{
+	    	position: absolute;
+	        top: 3em;
+		    right: 1em;
+		    background: none;
+		    color: $color-button;
+		    border: 1px solid $color-button;
+		    border-radius: 50%;
+		    padding: 1px 5.5px 2.5px 5.5px;
+		    &:hover{
+		    	border-color: $color-white;
+		    	color: $color-white;
+		    }
+		    &:focus{
+		    	outline: 0;
+		    }
+	    }
+		.image-left{
+			@include transition(all 0.5s);
+			@include translate3d(-100%,0,0);
+			flex: 0 0 30%;
+			opacity: 0;
+			img{
+				width: 100%;
+				height: auto;
+			    max-height: 90vh;
+			}
+		}
+		.detail{
+			@include transition(all 0.5s);
+			@include translate3d(0,30%,0);
+			opacity: 0;
+			padding: 0 10vw 0;
+		    flex: 0 0 70%;
+	    	box-sizing: border-box;
+	    	h2{
+			    font-size: 3.5em;
+			    font-weight: normal;
+			    margin: 0;
+	    	}
+	    	h3{
+			    font-size: 1.95em;
+			    font-weight: normal;
+			    margin: 0.25em 0 0.5em;
+			    color: #685884;
+	    	}
+	    	p{
+			    font-size: 1.25em;
+	    		line-height: 1.5;
+	    		a{
+	    			text-decoration: none;
+				    color: #5C5EDC;
+				    outline: none;
+	    		}
+	    	}
+		}
+	}
+}
+
+//Show detail
+.show{
+	.content{
+		.image-left{
+			@include translate3d(0,0,0);
+			opacity: 1;
+		}
+		.detail{
+			@include translate3d(0,0,0);
+			opacity: 1;
+		}
+	}
+}
+

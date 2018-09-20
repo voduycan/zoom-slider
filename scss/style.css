@@ -9,7 +9,7 @@ Error: Undefined variable: "$color-body".
 5:     box-sizing: border-box;
 6:     background-color: $bg-color;
 7:     position: relative;
-8:     height: 100vh;
+8:     //height: 100vh;
 
 Backtrace:
 D:\DC\zoom-slider_2\scss\style.scss:3
@@ -59,4 +59,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color-body\".\A         on line 3 of D:\DC\zoom-slider_2\scss\style.scss\A \A 1: body{\A 2: 	margin: 0;\A 3: 	color: $color-body;\A 4: 	font-family: $font-base;\A 5:     box-sizing: border-box;\A 6:     background-color: $bg-color;\A 7:     position: relative;\A 8:     height: 100vh;"; }
+  content: "Error: Undefined variable: \"$color-body\".\A         on line 3 of D:\DC\zoom-slider_2\scss\style.scss\A \A 1: body{\A 2: 	margin: 0;\A 3: 	color: $color-body;\A 4: 	font-family: $font-base;\A 5:     box-sizing: border-box;\A 6:     background-color: $bg-color;\A 7:     position: relative;\A 8:     //height: 100vh;"; }

@@ -1,10 +1,68 @@
+//CSS3 animation
+//----------------------------------
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+          animation: $animation;
+}
+
+//CSS3 translateX
+//----------------------------------
+@mixin translateX($x) {
+  -webkit-transform: translateX($x);
+          transform: translateX($x);
+}
+
+//CSS3 translate3d
+//----------------------------------
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+//CSS3 rotate
+//----------------------------------
+@mixin rotate($deg) {
+  -webkit-transform: rotate($deg);
+          transform: rotate($deg);
+}
+
+//CSS3 transition
+//----------------------------------
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
+
+//CSS3 animation to right
+//----------------------------------
 @keyframes to-right{
 	0%{transform: translateX(0%);}
 	50%{transform: translateX(-1%);}
 	100%{transform: translateX(0%);}
 }
+@-webkit-keyframes to-right{
+	0%{transform: translateX(0%);}
+	50%{transform: translateX(-1%);}
+	100%{transform: translateX(0%);}
+}
+
+//CSS3 animation to left
+//----------------------------------
 @keyframes to-left{
 	0%{transform: translateX(0%);}
 	50%{transform: translateX(1%);}
 	100%{transform: translateX(0%);}
+}
+@-webkit-keyframes to-left{
+	0%{transform: translateX(0%);}
+	50%{transform: translateX(1%);}
+	100%{transform: translateX(0%);}
+}
+
+//Content open animation
+//----------------------------------
+@keyframes zoom-in{
+	0%{
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
 }
